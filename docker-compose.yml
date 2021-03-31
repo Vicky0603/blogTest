@@ -1,0 +1,26 @@
+version: '3.1'
+
+services:
+  app:
+    build: .
+    environment:
+      - KODLAND_DB_USER=kodland
+      - KODLAND_DB_PASSWORD=kodland
+      - KODLAND_DB_NAME=kodland
+      - KODLAND_DB_HOST=db
+      - KODLAND_SECRET_KEY=CHANGEME
+      - KODLAND_DEBUG=yes
+      - KODLAND_ALLOWED_HOSTS
+    ports:
+      - 127.0.0.1:8000:8000
+    volumes:
+      - .:/usr/src/app
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - KODLAND_DB_USER=kodland
+      - KODLAND_DB_PASSWORD=kodland
+      - KODLAND_DB_NAME=kodland
+    volumes:
+      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d

@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kodland Blog</title>
+    <link rel="stylesheet" href="{% static 'blog/css/index.css' %}">
+</head>
+<body>
+    <div class="kodland-navbar">
+        <div class="row margin-bottom-remove">
+            <div class="col s2 kodland-logo">
+                <img class="responsive-img" src="{% static 'blog/images/logo_kodland.png' %}" alt="Kodland">
+            </div>
+            <div class="col s8 kodland-breadcrumbs">
+                {% block breadcrumbs %}{% endblock %}
+            </div>
+            <div class="col s2 kodland-actions">
+                <img src="{% static 'blog/images/email.svg' %}" alt="Messages">
+                <img src="{% static 'blog/images/profile.png' %}" alt="Profile">
+                <img src="{% static 'blog/images/logout.svg' %}" alt="Logout">
+            </div>
+        </div>
+    </div>
+    <div class="divider"></div>
+    
+    {% block content %}{% endblock %}
+
+    <script src="{% static 'blog/js/index.js' %}"></script>
+</body>
+</html>

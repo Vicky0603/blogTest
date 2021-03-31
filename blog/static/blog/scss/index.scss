@@ -1,0 +1,178 @@
+/* Variables */
+
+$primary-color: #315AF2;
+$primary-color-light: rgba($primary-color, 0.75);
+$primary-color-dark: rgba($primary-color, 0.40);
+
+$secondary-color: #CDCDCD;
+$secondary-color-light: rgba($secondary-color, 0.75);
+$secondary-color-dark: rgba($secondary-color, 0.40);
+
+$accent-color: #E9399C;
+$accent-color-light: rgba($accent-color, 0.75);
+$accent-color-dark: rgba($accent-color, 0.40);
+
+$button-raised-background: $primary-color;
+$button-raised-background-hover: $primary-color-light;
+$button-disabled-background: $primary-color-dark;
+$button-raised-color: #fff;
+$button-disabled-color: rgba($button-raised-color, 0.41);
+
+$button-accent-background: $accent-color;
+$button-accent-background-hover: $accent-color-light;
+$button-accent-disabled-background: $accent-color-dark;
+
+$font-stack: "Circe Rounded", sans-serif;
+
+$h-font-stack: "Museo Cyrl", $font-stack !default;
+
+@import "../node_modules/materialize-css/sass/materialize";
+
+
+/* Global */
+
+.container {
+    margin: 0 auto;
+    max-width: 1280px;
+    width: 90%;
+}
+@media #{$medium-and-up} {
+    .container {
+        width: 85%;
+    }
+}
+@media #{$large-and-up} {
+    .container {
+        width: 80%;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $h-font-stack;
+    color: $primary-color;
+}
+
+*[hidden] {
+    display: none;
+}
+
+.margin-bottom-remove {
+    margin-bottom: 0 !important;
+}
+
+.margin-top-remove {
+    margin-top: 0 !important;
+}
+
+
+/* Navigation */
+
+.kodland-navbar {
+    margin: 1rem;
+    
+    .row {
+        display: flex;
+        align-items: center;
+    }
+
+    .kodland-logo {
+        flex-basis: content;
+    }
+
+    .kodland-actions {
+        flex-basis: 15%;
+    }
+
+    .kodland-breadcrumbs {
+        flex-basis: 70%;
+    }
+}
+
+.kodland-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.kodland-breadcrumbs, .kodland-breadcrumbs a {
+    font-size: $h5-fontsize;
+    color: $off-black;
+    font-weight: bold;
+}
+
+
+/* Badges */
+
+.kodland-badge-new {
+    color: $accent-color;
+}
+
+
+/* Counters */
+
+.kodland-counters {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+
+    &>div {
+        display: flex;
+        align-items: center;
+        gap: 0.3em;
+    }
+}
+
+
+/* Cards */
+
+.kodland-article-card {
+    box-shadow: none;
+    border: 2px solid $secondary-color;
+    border-radius: 3px;
+
+    .card-image {
+        padding: $card-padding $card-padding 0 $card-padding;
+    }
+
+    .card-action {
+        border: none;
+    }
+
+    .kodland-counters {
+        justify-content: space-between;
+    }
+}
+
+.kodland-card-date {
+    color: $secondary-color;
+}
+
+
+/* Buttons */
+
+.btn.accent-btn {
+    &:focus {
+        background-color: darken($button-accent-background, 10%);
+    }
+
+    &:hover {
+        background-color: $button-accent-background-hover;
+    }
+
+    &[disabled], &.disabled {
+        background-color: $button-accent-disabled-background;
+    }
+
+    background-color: $button-accent-background;
+}
+
+.kodland-image-preview {
+    position: relative;
+
+    .kodland-preview-clear {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 10px;
+    }
+}

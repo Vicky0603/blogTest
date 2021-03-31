@@ -1,0 +1,41 @@
+{% extends "blog/layout.html" %}
+{% load static %}
+
+{% block breadcrumbs %}
+    <a href="#!">Блог</a>
+    /
+    <a href="#!">Добавить статью</a>
+{% endblock %}
+
+{% block content %}
+    <div class="section container">
+        <h3>Добавить статью</h3>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+                <div class="input-field col s8">
+                    {{ form.title }}
+                </div>
+                <div class="input-field col s4">
+                    <button class="accent-btn btn" type="submit">Опубликовать</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s8">
+                    {{ form.content }}
+                </div>
+                <div class="file-field input-field col s4" data-image-preview data-sel-file-input="input[type=file]" data-sel-img="img" data-sel-clear-btn="a">
+                    <h6 class="margin-top-remove">Загрузить изображение</h6>
+                    <div class="btn">
+                        <span>Выбрать</span>
+                        {{ form.featured_image }}
+                    </div>
+                    <div class="kodland-image-preview">
+                        <img class="responsive-img" src="">
+                        <a class="waves-effect waves-teal btn-flat kodland-preview-clear"><img src="{% static 'blog/images/clear.svg' %}" alt="Clear"></a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}
